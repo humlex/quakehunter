@@ -1,7 +1,9 @@
+const { paginateResults } = require("./utils");
+
 module.exports = {
   Query: {
     quakes: async (_, { pageSize = 20, after }, { dataSources }) => {
-      const allQuakes = await dataSources.quakesAPI.getAllQuakes();
+      const allQuakes = await dataSources.quakeAPI.getAllQuakes();
       allQuakes.reverse();
       const quakes = paginateResults({
         after,
