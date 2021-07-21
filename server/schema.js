@@ -4,6 +4,7 @@ const typeDefs = gql`
   type Query {
     quakes: [Quake]!
     quake(id: ID!): Quake
+    users: [User]
     me: User
   }
 
@@ -12,7 +13,7 @@ const typeDefs = gql`
     location: String
     magnitude: Float
     when: String
-    time: String
+    cursor: String
   }
 
   type User {
