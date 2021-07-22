@@ -15,6 +15,7 @@
     "apollo-datasource-rest": "^3.0.1",
     "apollo-server": "^3.0.1",
     "graphql": "^15.5.1",
+    "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.1"
   }
 }
