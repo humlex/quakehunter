@@ -31,8 +31,9 @@ class UserAPI extends DataSource {
 
   async saveRecord({ recordId }) {
     const userId = this.context.user.id;
+
     if (!userId) {
-      console.log("No user in context");
+      console.log("No user on context");
     } else {
       console.log("User on context");
     }
@@ -51,7 +52,7 @@ class UserAPI extends DataSource {
       }
     });
 
-    return users[0].records.length > 4 ? user[0].records : "none";
+    return users[0].records.length > 4 ? users[0].records : "none";
   }
 }
 

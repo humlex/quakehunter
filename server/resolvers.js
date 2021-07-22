@@ -32,11 +32,12 @@ module.exports = {
     },
     saveRecord: async (_, { recordId }, { dataSources }) => {
       const results = await dataSources.userAPI.saveRecord({ recordId });
+
       return {
         success: results.length ? true : false,
         message: results.length
           ? "Quake data successfully saved"
-          : "Quake data not saved",
+          : "Quake data NOT saved",
         records: results,
       };
     },
