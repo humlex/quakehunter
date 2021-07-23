@@ -1,0 +1,13 @@
+.quaketile {
+  background-color: beige;
+  border: 2px solid lightblue;
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header {
+  background-color: navy;
+  color: white;
+}
