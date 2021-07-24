@@ -11,3 +11,8 @@
   background-color: navy;
   color: white;
 }
+
+.loginform {
+  width: 40%;
+  margin: auto;
+}

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useApolloClient } from "@apollo/client";
 import gql from "graphql-tag";
 import QuakeTile from "./components/quaketile";
 import Header from "./components/header";
@@ -23,7 +23,14 @@ const GET_QUAKES = gql`
 `;
 
 const Quakes = () => {
+  const client = useApolloClient();
   const { data, loading, error, fetchMore } = useQuery(GET_QUAKES);
+
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    client.writeData({ data: { isLoggedIn: false } });
+    localStorage.clear();
+  };
 
   if (loading) return <p>Loading</p>;
   if (error) return <p>ERROR</p>;
@@ -33,6 +40,9 @@ const Quakes = () => {
     <Fragment>
       <Header />
       <div className="main">
+        <button type="submit" onClick={logoutHandler}>
+          Log out
+        </button>
         {data.quakes &&
           data.quakes.quakes &&
           data.quakes.quakes.map((quake) => (
